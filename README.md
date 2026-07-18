@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Rizzxx Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RIZZXX STORE</title>
 
 <style>
 
@@ -11,35 +13,55 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
 background:#0f0f0f;
-color:white;
+color:#fff;
+padding-bottom:120px;
 }
 
 header{
-background:#151515;
+background:#181818;
 padding:20px;
 text-align:center;
-border-bottom:3px solid #0066ff;
+border-bottom:3px solid #007bff;
+position:sticky;
+top:0;
+z-index:1000;
 }
 
 header h1{
-font-size:35px;
+font-size:34px;
 color:#4da3ff;
 }
 
 header p{
 margin-top:5px;
 color:#ccc;
+font-size:15px;
+}
+
+.search{
+width:95%;
+margin:20px auto;
+}
+
+.search input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#1d1d1d;
+color:white;
+font-size:16px;
+outline:none;
 }
 
 .container{
 width:95%;
 margin:auto;
-padding:20px;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:20px;
@@ -49,12 +71,13 @@ gap:20px;
 background:#1b1b1b;
 border-radius:15px;
 overflow:hidden;
-box-shadow:0 0 15px rgba(0,0,0,.5);
+box-shadow:0 0 12px rgba(0,0,0,.5);
 transition:.3s;
 }
 
 .card:hover{
 transform:translateY(-6px);
+box-shadow:0 0 20px #007bff;
 }
 
 .card img{
@@ -68,28 +91,28 @@ padding:15px;
 }
 
 .info h2{
-font-size:23px;
+font-size:22px;
 margin-bottom:10px;
 }
 
 .price{
 font-size:24px;
-color:#00ff66;
 font-weight:bold;
+color:#00ff66;
 margin-bottom:10px;
 }
 
 .stock{
-color:#7dff7d;
+color:#77ff77;
 margin-bottom:15px;
 }
 
 button{
 width:100%;
 padding:14px;
-background:#0066ff;
 border:none;
 border-radius:10px;
+background:#007bff;
 color:white;
 font-size:18px;
 cursor:pointer;
@@ -97,23 +120,31 @@ transition:.3s;
 }
 
 button:hover{
-background:#004dcc;
+background:#005fd1;
 }
 
 .cart{
 position:fixed;
-bottom:20px;
 right:20px;
-background:#181818;
+bottom:20px;
+width:260px;
+background:#1a1a1a;
 padding:18px;
 border-radius:15px;
-width:260px;
-box-shadow:0 0 20px #0066ff;
+box-shadow:0 0 20px #007bff;
 }
 
 .checkout{
-margin-top:10px;
 background:#16a34a;
+margin-top:10px;
+}
+
+footer{
+margin-top:40px;
+padding:20px;
+background:#181818;
+text-align:center;
+color:#aaa;
 }
 
 </style>
@@ -129,6 +160,16 @@ background:#16a34a;
 <p>Grow A Garden Shop</p>
 
 </header>
+
+<div class="search">
+
+<input
+type="text"
+id="search"
+placeholder="🔍 Cari Produk..."
+onkeyup="cariProduk()">
+
+</div>
 
 <div class="container">
 <!-- Dragon Breath Seed -->
@@ -221,18 +262,70 @@ background:#16a34a;
     </div>
 </div>
 
-<!-- 1B Sheckles -->
+<!-- 10M Sheckles -->
 <div class="card">
-    <img src="images/1b.jpg" alt="1B Sheckles">
+    <img src="images/10m.jpg" alt="10M Sheckles">
     <div class="info">
-        <h2>💰 1B Sheckles via Buah</h2>
-        <div class="price">Rp5.000</div>
+        <h2>💰 10M Sheckles</h2>
+        <div class="price">Rp1.000</div>
         <div class="stock">✅ Ready Stock</div>
-        <button onclick="add('1B Sheckles',5000)">
+        <button onclick="add('10M Sheckles',1000)">
             Tambah ke Keranjang
         </button>
     </div>
 </div>
+
+<!-- 50M Sheckles -->
+<div class="card">
+    <img src="images/50m.jpg" alt="50M Sheckles">
+    <div class="info">
+        <h2>💰 50M Sheckles</h2>
+        <div class="price">Rp2.000</div>
+        <div class="stock">✅ Ready Stock</div>
+        <button onclick="add('50M Sheckles',2000)">
+            Tambah ke Keranjang
+        </button>
+    </div>
+</div>
+<!-- 100M Sheckles -->
+<div class="card">
+    <img src="images/100m.jpg" alt="100M Sheckles">
+    <div class="info">
+        <h2>💰 100M Sheckles</h2>
+        <div class="price">Rp3.000</div>
+        <div class="stock">✅ Ready Stock</div>
+        <button onclick="add('100M Sheckles',3000)">
+            Tambah ke Keranjang
+        </button>
+    </div>
+</div>
+
+<!-- 500M Sheckles -->
+<div class="card">
+    <img src="images/500m.jpg" alt="500M Sheckles">
+    <div class="info">
+        <h2>💰 500M Sheckles</h2>
+        <div class="price">Rp5.000</div>
+        <div class="stock">✅ Ready Stock</div>
+        <button onclick="add('500M Sheckles',5000)">
+            Tambah ke Keranjang
+        </button>
+    </div>
+</div>
+
+<!-- 1B Sheckles -->
+<div class="card">
+    <img src="images/1b.jpg" alt="1B Sheckles">
+    <div class="info">
+        <h2>💎 1B Sheckles</h2>
+        <div class="price">Rp10.000</div>
+        <div class="stock">✅ Ready Stock</div>
+        <button onclick="add('1B Sheckles',10000)">
+            Tambah ke Keranjang
+        </button>
+    </div>
+</div>
+
 </div>
 
 <!-- Keranjang -->
@@ -252,23 +345,18 @@ Checkout WhatsApp
 
 <script>
 
-let cart = [];
-let total = 0;
+let cart=[];
+let total=0;
 
 function add(nama,harga){
 
-cart.push({
-nama:nama,
-harga:harga
-});
+cart.push({nama,harga});
 
-total += harga;
+total+=harga;
 
-document.getElementById("jumlah").innerHTML =
-cart.length + " Item";
+document.getElementById("jumlah").innerHTML=cart.length+" Item";
 
-document.getElementById("total").innerHTML =
-"Rp " + total.toLocaleString("id-ID");
+document.getElementById("total").innerHTML="Rp "+total.toLocaleString("id-ID");
 
 alert("✅ "+nama+" berhasil ditambahkan!");
 
@@ -277,25 +365,21 @@ alert("✅ "+nama+" berhasil ditambahkan!");
 function checkout(){
 
 if(cart.length===0){
-
 alert("Keranjang masih kosong!");
-
 return;
-
 }
 
-let pesan = "Halo Admin Rizzxx Store 👋%0A%0A";
-pesan += "Saya ingin membeli:%0A%0A";
+let pesan="Halo Admin RIZZXX STORE 👋%0A%0ASaya ingin membeli:%0A%0A";
 
 cart.forEach(function(item,index){
 
-pesan += (index+1)+". "+item.nama+" - Rp"+item.harga.toLocaleString("id-ID")+"%0A";
+pesan+=(index+1)+". "+item.nama+" - Rp"+item.harga.toLocaleString("id-ID")+"%0A";
 
 });
 
-pesan += "%0ATotal : Rp"+total.toLocaleString("id-ID");
-pesan += "%0A%0ANama Roblox : ";
-pesan += "%0AUsername : ";
+pesan+="%0ATotal: Rp"+total.toLocaleString("id-ID");
+pesan+="%0A%0ANama Roblox: ";
+pesan+="%0AUsername: ";
 
 window.open(
 "https://wa.me/6283849070499?text="+pesan,
@@ -304,10 +388,31 @@ window.open(
 
 }
 
+function cariProduk(){
+
+let input=document.getElementById("search").value.toLowerCase();
+
+let card=document.querySelectorAll(".card");
+
+card.forEach(function(item){
+
+if(item.innerText.toLowerCase().includes(input)){
+item.style.display="";
+}else{
+item.style.display="none";
+}
+
+});
+
+}
+
 </script>
 
-<footer style="text-align:center;padding:20px;background:#151515;color:#aaa;margin-top:40px;">
-© 2026 RIZZXX STORE | Grow A Garden Shop
+<footer>
+
+© 2026 RIZZXX STORE<br>
+Grow A Garden Shop
+
 </footer>
 
 </body>
