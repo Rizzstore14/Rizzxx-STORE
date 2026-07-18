@@ -1,5 +1,3 @@
-# Rizzxx-STORE
-Sekali beli pasti nagih
 <!DOCTYPE html>
 <html lang="id">
 <head>
